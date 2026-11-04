@@ -1,3 +1,35 @@
 classDiagram
 
-class
+class Red {
+    
+} 
+
+class Servidor {
+- mensajes : String
+
+}
+
+class PC {
+- mensajes : String
+}
+
+class Impresora{
+
+}
+
+class HUB {
+ - puertos : int
+}
+
+class CableRed {
+
+}
+
+class Impresora {
+    - averias : boolean
+
+}
+
+pc "1"--* "1"HUB
+PC "1"--o "1..*" Servidores
+HUB --> HUB
