@@ -1,0 +1,43 @@
+classDiagram
+class Biblioteca {
+    + MAXIMO_PRESTAMO: int = 30$ 
+    + MAXIMO_LIBRO: int = 3$ 
+
+}
+class Libro {
+    <<interface>>
+    - nombre:  String,
+    - tipo: TipoLibroEnum,
+    - editorial: String,
+    -anho: int,
+    // si autor se necesita despues se muestra despues con una flecha.
+}
+note for Libro "<strong>TipoLibroEnum</strong><br>NOVELA<br>TEATRO<br>POESIA <br>ENSAYO"
+
+class Autor { 
+    -nombre : String,
+    -nacionalidad : String,
+    -fecha_nacimiento : String,
+
+}
+
+class Copia{
+    -identificador : int,
+    - puede_esta_biblio: enum,
+
+}
+
+ note for Copia "<strong>EstadiCopiaEnum</strong><br>PRESTADO<br>RETRASO"
+
+class Lectores {
+    -diaMulta : date
+    -diasMultado : int
+    
+}
+
+Libro "1..*" --* "1" Autor : escribe
+Libro <|-- Copia 
+Libro "1" --* "*"Copia : tiene
+Lectores "1" --o "1..3" Copia : Leen 
+Libro "*" *-- "1"Biblioteca : hay
+Copia "*" *-- "1" Biblioteca 
