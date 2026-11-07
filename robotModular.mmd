@@ -1,0 +1,49 @@
+classDiagram  
+ 
+    class modulo { 
+        -identificador: string
+        -dimensionLargo : int
+        -dimensioAncho: int
+        -dimensionAlto : int
+
+ }
+
+ class sistemaControl{
+    - 
+ }
+
+ class sistemaComunicacion { 
+ 
+ }
+
+    class camara {
+        -sensores : int
+ }
+
+    class rotacion {
+     -motor: int
+     -parametros: string
+    -funcionMoverse: string
+ }
+
+    class extension {
+        -motor: int
+        -parametros: string
+        -funcionMoverse: string
+ }
+ 
+
+ class helicoidal {
+    -motor: int
+    -parametros: string
+     -funcionMoverse: string
+ }
+ 
+sistemaControl "1" <-- "1" sistemaComunicacion : enviar/recibir mensajes
+modulo   "1"--* "1..*" sistemaComunicacion 
+modulo "1"--* "1..*" sistemaControl
+modulo "1"--* "1..*" camara
+modulo "1"--* "1..*" rotacion
+modulo "1"--* "1..*" extension
+modulo "1"--* "1..*" helicoidal
+

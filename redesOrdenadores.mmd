@@ -14,22 +14,27 @@ class PC {
 }
 
 class Impresora{
-
+ - averias : boolean
+ - tiempoAveria : int
 }
 
 class HUB {
  - puertos : int
+ - perdidaMensajes : boolean
 }
 
 class CableRed {
-
+git
 }
 
-class Impresora {
-    - averias : boolean
 
-}
 
-pc "1"--* "1"HUB
-PC "1"--o "1..*" Servidores
-HUB --> HUB
+PC "1"--* "1"HUB
+PC "1"--o "1..*" Servidor
+HUB "1..*" -->"1..*" HUB : conectan otros HUB
+Red --o Servidor
+Red --o PC
+Red --o Impresora
+Red --o HUB
+Red --o CableRed
+
