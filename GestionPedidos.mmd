@@ -1,0 +1,34 @@
+classDiagram
+
+class Pedidos {
+-estado: EstadoPedido
+
+}
+class EstadoPedido{
+    <<enumeracion>>
+    PENDIENTE, PAGADO, ENVIADO, ENTREGADO
+}
+
+class producto{
+
+}
+
+class cliente{
+
+}
+
+class FormaPago{
++pagoPedido (pago: double): pedido
+}
+
+class TarjetaCredito{
+-fehcaCaducidad: fecha
+-numero: int 
+
+}
+
+class Efectivo{
+-moneda : int
+-cheque: String
+}
+
