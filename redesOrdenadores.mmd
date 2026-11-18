@@ -20,21 +20,23 @@ class Impresora{
 
 class HUB {
  - puertos : int
- - perdidaMensajes : boolean
+ - perdidaMensajes : int
 }
 
 class CableRed {
-git
+
 }
 
 
 
-PC "1"--* "1"HUB
-PC "1"--o "1..*" Servidor
-HUB "1..*" -->"1..*" HUB : conectan otros HUB
-Red --o Servidor
-Red --o PC
-Red --o Impresora
-Red --o HUB
-Red --o CableRed
+PC "1"--> "1" HUB : conectan 
+Servidor "1"--> "1..*" HUB :conectan
+Impresora "0..*"--> "1*" HUB :conectan 
+HUB "0..*" -->"0..*" HUB : conectan otros HUB
+CableRed "1" o-- "1..*" HUB : conectan
+Red "1" o-- "1..*" Servidor
+Red "1" o-- "1..*" PC
+Red "1" o-- "1..*" Impresora
+Red "1" o-- "1..*" HUB
+Red "1" o-- "1..*" CableRed
 

@@ -39,11 +39,11 @@ classDiagram
      -funcionMoverse: string
  }
  
-sistemaControl "1" <-- "1" sistemaComunicacion : enviar/recibir mensajes
-modulo   "1"--* "1..*" sistemaComunicacion 
-modulo "1"--* "1..*" sistemaControl
-modulo "1"--* "1..*" camara
-modulo "1"--* "1..*" rotacion
-modulo "1"--* "1..*" extension
-modulo "1"--* "1..*" helicoidal
+sistemaControl "1" <|-- "1" sistemaComunicacion : enviar/recibir mensajes
+modulo   "1" *-- "1..*" sistemaComunicacion 
+modulo "1" *-- "1..*" sistemaControl
+modulo "1" *-- "1..*" camara
+modulo "1" *-- "1..*" rotacion
+modulo "1" *-- "1..*" extension
+modulo "1" *-- "1..*" helicoidal
 
