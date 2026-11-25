@@ -1,0 +1,67 @@
+classDiagram
+class Pedido {
+    -fecha: Date
+    +CalcularCoste (): double
+
+
+}
+
+class Cliente{
+
+}
+
+class Productos{
+    - precio: double
+    - impuesto: int %% en porcentajes intentamos usar int 
+    - existencias: <<interface>> 
+    +hayStock (cantidad: int): boolean
+
+}
+
+class ProductoPedido{ %%clase que se cre intermedia entre estas dos porque la relacion termina siendo N.M y hay que descomponerla
+    
+    - cantidad: int
+}
+
+class Pago {
+
+    <<abstract>>
+}
+
+
+
+
+class Tarjeta{
+
+
+}
+
+
+
+
+class Efectivo{
+
+
+}
+
+
+
+
+class Cheque{
+
+
+}
+
+class MetodoPago{
+
+
+}
+
+
+Pedido "1" *-- "0..*"  Cliente  %% asterisco del lado de quien se compone
+
+%%Pedido "1" --* "0..*" Producto %% N.M se tiene que descompner por eso se hace la nueva clase 
+ProductoPedido "0..*" *-- "1" Linea %%siemore tiene que queda 1.N
+Producto "1" --* "0..*" ProductoPedido
+
+Pedido "1..*" --> "0..*" Pago
